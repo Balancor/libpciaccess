@@ -35,6 +35,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 #if defined(HAVE_STRING_H)
 # include <string.h>
