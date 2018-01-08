@@ -15,17 +15,19 @@ LOCAL_SRC_FILES := \
     src/common_capability.c \
     src/common_device_name.c \
     src/common_map.c \
-    src/pciaccess_private.h \
     src/linux_sysfs.c \
     src/linux_devmem.c \
-    src/linux_devmem.h \
     src/common_vgaarb.c
-
-PRODUCT_COPY_FILES += \
-    external/libpciaccess/hwdata/pci.ids:system/etc/hwdata/pci.ids 
 
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/include
 
 LOCAL_MODULE := libpciaccess
 include $(BUILD_STATIC_LIBRARY)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE := pci.ids
+LOCAL_SRC_FILES := hwdata/pci.ids
+LOCAL_MODULE_CLASS = ETC
+LOCAL_MODULE_PATH := $(TARGET_OUT)/etc/hwdata
+include $(BUILD_PREBUILT)
