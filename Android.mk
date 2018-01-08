@@ -21,6 +21,9 @@ LOCAL_SRC_FILES := \
     src/linux_devmem.h \
     src/common_vgaarb.c
 
+PRODUCT_COPY_FILES += \
+    external/libpciaccess/hwdata/pci.ids:system/etc/hwdata/pci.ids 
+
 LOCAL_C_INCLUDES += $(LOCAL_PATH)/include
 LOCAL_EXPORT_C_INCLUDE_DIRS := $(LOCAL_PATH)/include
 
